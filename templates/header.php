@@ -23,20 +23,16 @@
 
 <header class="header">
     <nav class="nav">
-        <a class="nav-brand" href="/">imsgames</a>
+        <a class="nav-title" href="/">imsgames</a>
 
         <ul class="nav-list">
             <a class="nav-link" href="/game">Games</a>
             <a class="nav-link" href="/game/request">Requests</a>
 
             <?php if (!$this->isLoggedIn): ?>
-                <a href="/authentication" class="nav-authentication">
-                    <button>Login</button>
-                </a>
+                <a href="/authentication" class="nav-authentication">Einloggen</a>
             <?php else: ?>
-                <a href="/authentication/logout" class="nav-authentication">
-                    <button>Logout</button>
-                </a>
+                <a href="/authentication/logout" class="nav-authentication">Logout</a>
             <?php endif; ?>
         </ul>
 
