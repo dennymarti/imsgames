@@ -71,7 +71,6 @@ class ConnectionHandler
 
                 throw new DatabaseConnectionException($error);
             }
-
             self::$connection->set_charset('utf8');
         }
 

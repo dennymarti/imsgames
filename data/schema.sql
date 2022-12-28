@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Apr 2022 um 14:36
+-- Erstellungszeit: 28. Dez 2022 um 17:36
 -- Server-Version: 10.4.24-MariaDB
--- PHP-Version: 8.1.4
+-- PHP-Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,15 +25,15 @@ USE `imsgames`;
 --
 
 DROP TABLE IF EXISTS `comment`;
+
 CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `comment` text NOT NULL,
-  `game_id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `game_id` (`game_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `comment` TEXT NOT NULL,
+    `game_id` INTEGER NOT NULL,
+    `user_id` INTEGER NOT NULL,
+    FOREIGN KEY (`game_id`) REFERENCES `game`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
+);
 
 -- --------------------------------------------------------
 
@@ -42,16 +42,16 @@ CREATE TABLE IF NOT EXISTS `comment` (
 --
 
 DROP TABLE IF EXISTS `statistic`;
+
 CREATE TABLE IF NOT EXISTS `statistic` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `playtime` int,
-  `highscore` int,
-  `game_id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `game_id` (`game_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `playtime` INTEGER NOT NULL,
+    `highscore` INTEGER NOT NULL,
+    `game_id` INTEGER NOT NULL,
+    `user_id` INTEGER NOT NULL,
+    FOREIGN KEY (`game_id`) REFERENCES `game`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
+);
 
 -- --------------------------------------------------------
 
@@ -60,13 +60,13 @@ CREATE TABLE IF NOT EXISTS `statistic` (
 --
 
 DROP TABLE IF EXISTS `game`;
+
 CREATE TABLE IF NOT EXISTS `game` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `dir` text NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(64) NOT NULL,
+    `dir` TEXT NOT NULL,
+    `description` TEXT NOT NULL
+);
 
 -- --------------------------------------------------------
 
@@ -75,13 +75,13 @@ CREATE TABLE IF NOT EXISTS `game` (
 --
 
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL UNIQUE,
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `user` (
+    `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(32) NOT NULL UNIQUE,
+    `email` VARCHAR(32) UNIQUE,
+    `password` VARCHAR(64) NOT NULL
+);
 
 -- --------------------------------------------------------
 
@@ -90,34 +90,13 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 DROP TABLE IF EXISTS `request`;
+
 CREATE TABLE IF NOT EXISTS `request` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `link` varchar(255) NOT NULL,
-  `textarea` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
---
--- Constraints der exportierten Tabellen
---
-
---
--- Constraints der Tabelle `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-;
-
--- Constraints der Tabelle `statistic`
---
-ALTER TABLE `statistic`
-  ADD CONSTRAINT `statistic_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
-  ADD CONSTRAINT `statistic_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-;
-
--- RELATIONEN DER TABELLE `game`:
---
+    `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR(32) NOT NULL,
+    `link` VARCHAR(64) NOT NULL,
+    `text` TEXT NOT NULL
+);
 
 --
 -- Daten für Tabelle `game`
@@ -131,4 +110,3 @@ INSERT INTO `game` (`id`, `name`, `dir`, `description`) VALUES
 (6, 'Snake', 'Snake', 'Das Ziel dieses spieles ist es, die Schlange so lange wie möglich zu bekommen. Dies kann erreicht werden, indem man üer die roten Kästchen (Äpfel) rutscht. Gesteuert wird mit \"wsad\". \"w\" um nach oben zu schlängeln, \"d\" nach rechts, \"a\" nach links und \"s\" nach unten. Fährt man in sich selbst ist GameOver. Wenn man an die Wand gelangt kommt man auf der anderen wieder heraus.');
 
 COMMIT;
-

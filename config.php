@@ -21,9 +21,8 @@ return array(
     // Datebankkonfiguration
     'database' => array(
         'host'     => 'localhost',
-        'username' => 'user',
+        'username' => 'ims',
         'password' => 'sml12345',
         'database' => 'imsgames',
     ),
-
 );
