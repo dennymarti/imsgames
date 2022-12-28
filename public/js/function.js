@@ -3,12 +3,10 @@ function visualizePassword(event) {
     const input = bx.parentElement.querySelector('.form-input');
     if (input.type === 'password') {
         input.type = 'text';
-        bx.classList.add('bxs-show');
-        bx.classList.remove('bx-low-vision');
+        bx.classList = 'bx bx-show bxp';
     } else if (input.type === 'text') {
         input.type = 'password';
-        bx.classList.remove('bxs-show');
-        bx.classList.add('bx-low-vision');
+        bx.classList = 'bx bx-hide bxp';
     }
 }
 

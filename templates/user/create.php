@@ -30,7 +30,7 @@
             <i class="bx bxs-lock-alt bxf"></i>
             <i class="bx bx-x-circle bx-vw"></i>
             <i class="bx bx-check-circle bx-vs"></i>
-            <i class="bx bx-low-vision bxp" onclick="visualizePassword(event)"></i>
+            <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
 
             <div class="tooltip-box">
                 <p class="tooltip-message"></p>
@@ -41,7 +41,7 @@
             <i class="bx bxs-lock-alt bxf"></i>
             <i class="bx bx-x-circle bx-vw"></i>
             <i class="bx bx-check-circle bx-vs"></i>
-            <i class="bx bx-low-vision bxp" onclick="visualizePassword(event)"></i>
+            <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
 
             <div class="tooltip-box">
                 <p class="tooltip-message"></p>

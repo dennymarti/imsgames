@@ -21,13 +21,13 @@
         <div class="form-field">
             <input class="form-input" name="password" type="password" placeholder="Passwort" required>
             <i class="bx bxs-lock-alt bxf"></i>
-            <i class="bx bx-low-vision bxp" onclick="visualizePassword(event)"></i>
+            <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
         </div>
 
         <div class="form-text">
             <p>Hast du noch keinen Account?</p>
             <p>Dann registriere dich <a class="link" href="/user/signup">hier</a></p>
         </div>
-        <button class="form-submit" id="submit" type="submit">Anmelden</button>
+        <input class="form-submit" type="submit" value="Anmelden">
     </form>
 </div>
