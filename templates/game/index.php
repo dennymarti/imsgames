@@ -14,25 +14,25 @@
                 </div>
 
                 <div class="game-box-footer">
-                    <a href="/game/selected?id=<?= $game->id; ?>"><button class="btn btn-primary">Ansehen</button></a>
+                    <a class="box-button" href="/game/selected?id=<?= $game->id; ?>">Spielen</a>
                 </div>
             </div>
         <?php else: ?>
             <?php foreach ($games as $game): ?>
-                <div class="box">
-                    <div class="box-header">
-                        <h2 class="box-title"><?= $game->name; ?></h2>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title"><?= $game->name; ?></h2>
                     </div>
 
-                    <div class="box-content">
-                        <div class="box-field">
-                            <h4 class="field-title">Beschreibung</h4>
-                            <textarea class="box-textarea" readonly><?= $game->description; ?></textarea>
+                    <div class="card-content">
+                        <div class="card-field">
+                            <h4 class="card-subtitle">Beschreibung</h4>
+                            <div class="card-description" readonly><?= $game->description; ?></div>
                         </div>
                     </div>
 
-                    <div class="box-footer">
-                        <a href="/game/selected?id=<?= $game->id; ?>"><button class="box-button">Ansehen</button></a>
+                    <div class="card-footer">
+                        <a class="card-button" href="/game/selected?id=<?= $game->id; ?>">Spielen</a>
                     </div>
                 </div>
             <?php endforeach; ?>
