@@ -15,7 +15,7 @@ class UserController
 {
     public function index()
     {
-        if (AuthenticationService::isAuthenticated()){
+        if (AuthenticationService::isAuthenticated()) {
             $userRepository = new UserRepository();
 
             $view = new View('user/index');
@@ -26,29 +26,20 @@ class UserController
             $view->heading = 'Benutzer';
             $view->users = $userRepository->readById($_SESSION['id']);
             $view->display();
-        }
-        else{
+        } else {
             header('Location: /signin');
         }
     }
-    
+
+    public function signup() {
+        $view = new View('/user/signup');
+
+        $view->title = 'Registrieren';
+        $view->heading = 'Registrieren';
+        $view->display();
+    }
+
     public function create()
-    {
-        $view = new View('user/create');
-        $view->title = 'Registrieren';
-        $view->heading = 'Registrieren';
-        $view->display();
-    }
-
-    public function signup(){
-        $view = new View('user/create');
-
-        $view->title = 'Registrieren';
-        $view->heading = 'Registrieren';
-        $view->display();
-    }
-
-    public function doCreate()
     {
         if (isset($_POST['send'])) {
             $username = htmlentities($_POST['username']);
@@ -59,8 +50,9 @@ class UserController
             $result = $userRepository->create($username, $password);
             if ($result[0]) {
                 AuthenticationService::login($username, $password);
-                NotificationService::setNotification("Erfolgreich registriert.");
+                NotificationService::setNotification($result[1]);
                 header('Location: /game');
+                exit();
             } else {
                 $view = new View('user/create');
 
@@ -84,5 +76,6 @@ class UserController
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /default');
+        exit();
     }
 }

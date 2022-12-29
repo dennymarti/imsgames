@@ -27,3 +27,7 @@ function enableCommentButton(event) {
         }
     });
 }
+
+function closeToast() {
+    document.getElementById("toast").remove();
+}

@@ -34,10 +34,10 @@ class AuthenticationService
 
                 return [true];
             } else {
-                $authenticationMessage = 'Passwort stimmt nicht';
+                $authenticationMessage = 'Das eingegebene Passwort stimmt nicht.';
             }
         } else {
-            $authenticationMessage = 'Benutzername nicht gefunden';
+            $authenticationMessage = 'Der eingegebene Benutzername existiert nicht.';
         }
 
         return [false, $authenticationMessage];

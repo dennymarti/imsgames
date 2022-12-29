@@ -15,12 +15,12 @@
         ?>
         <div class="form-field">
             <input class="form-input" name="username" type="text" placeholder="Benutzername" required>
-            <i class="bx bxs-user bxf"></i>
+            <i class="bx bx-user bxf"></i>
         </div>
 
         <div class="form-field">
             <input class="form-input" name="password" type="password" placeholder="Passwort" required>
-            <i class="bx bxs-lock-alt bxf"></i>
+            <i class="bx bx-lock-alt bxf"></i>
             <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
         </div>
 

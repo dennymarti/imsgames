@@ -34,7 +34,7 @@ class UserRepository extends Repository
         $usernames = $this->readAll();
         foreach ($usernames as $name) {
             if ($name->username == $username) {
-                $registrationMessage = 'Benutzername ist bereits vergeben';
+                $registrationMessage = 'Der Benutzername ist bereits vergeben.';
                 return [false, $registrationMessage];
             }
         }
@@ -50,7 +50,7 @@ class UserRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        $registrationMessage = 'Erfolgreich registriert';
+        $registrationMessage = 'Dein Konto wurde erfolgreich registriert.';
 
         return [true, $registrationMessage];
     }

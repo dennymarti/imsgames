@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Database\ConnectionHandler;
 use App\Service\AuthenticationService;
 use App\Service\NotificationService;
 use App\View\View;
@@ -20,13 +21,14 @@ class AuthenticationController
     public function login()
     {
         // to prevent XSS
-        $username = htmlentities($_POST['username']);
+        $username = strtolower(htmlentities($_POST['username']));
         $password = htmlentities($_POST['password']);
 
         $loginResult = AuthenticationService::login($username, $password);
         if ($loginResult[0]) {
-            NotificationService::setNotification("Erfolgreich eingeloggt.");
+            NotificationService::setNotification('Du hast dich erfolgreich angemeldet.');
             header('Location: /default');
+            exit();
         } else {
             $view = new View('/authentication/login');
             $view->title = 'Login';
@@ -39,8 +41,9 @@ class AuthenticationController
     public function logout()
     {
         AuthenticationService::logout();
-        NotificationService::setNotification("Erfolgreich ausgeloggt.");
+        NotificationService::setNotification("Du hast dich erfolgreich abgemeldet.");
 
         header('Location: /');
+        exit();
     }
 }

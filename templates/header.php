@@ -40,23 +40,22 @@
             <i class='bx bxs-grid-alt'></i>
         </button>
     </nav>
-</header>
-
-<main class="container">
     <?php
     if (isset($_SESSION['notification'])) {
         $message = $_SESSION['notification'];
         echo "
-<div class='toast-box'>
-    <i class='bx bx-info-circle bxi'></i>
-    
-    <div class='toast-message'>
-        <p>$message</p>
-    </div>
-</div>
-";
+        <div class='toast' id='toast'>
+            <div class='toast-content'>
+                <h4 class='toast-title'>Authentifizierung</h4>
+                <p class='toast-message'>$message</p>
+            </div>
+            <i class='bx bx-x close-icon' onclick='closeToast();'></i>
+        </div>";
         unset($_SESSION['notification']);
     }
     ?>
+</header>
+
+<main class="container">
     <div class="wrapper">
         <!-- Ab hier wird HTML-Code von der View übernommen -->
