@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import "nav.css";
 @import "toast.css";
 
 :root {
@@ -6,10 +7,11 @@
     --dark: #212529;
     --light: #f8f9fa;
     --blue: #657db8;
+    --light-grey: rgba(0, 0, 0, 0.1);
     --nav-height: 70px;
     --font-family: "Poppins", sans-serif;
     --min-height: calc(100vh - 70px);
-    --transition: all 0.3s ease;
+    --transition: all 0.3s;
 }
 
 * {
@@ -111,11 +113,6 @@ body {
 .bx-error-circle {
     align-self: center;
     font-size: 24px;
-    position: relative;
-}
-
-.bxs-grid-alt {
-    color: var(--dark) !important;
     position: relative;
 }
 
@@ -500,59 +497,6 @@ body {
     text-decoration: underline;
 }
 
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--nav-height);
-    flex-direction: row;
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 0 1rem;
-    position: relative;
-    width: 100vw;
-}
-
-.nav-authentication {
-    background-color: #657db8;
-    border-radius: 2rem;
-    border: none;
-    color: white;
-    padding: 0.5rem 1.5rem;
-}
-
-.nav-title {
-    color: var(--dark);
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    position: relative;
-}
-
-.nav-link {
-    color: var(--dark);
-    display: block;
-    font-size: 17px;
-    font-weight: 500;
-    transition: 200ms;
-}
-
-.nav-link:hover {
-    color: var(--blue);
-}
-
-.nav-button {
-    background-color: transparent;
-    border: none;
-    display: none;
-    padding: 0;
-}
-
 .notification-card {
     animation: fadeIn 1s linear;
     background-color: rgba(230, 230, 230, 0.3);
@@ -645,45 +589,6 @@ body {
 }
 
 @media only screen and (max-width: 580px) {
-    .nav-authentication {
-        padding: 6px 12px !important;
-    }
-
-    .nav-list {
-        align-items: flex-start;
-        background-color: var(--light);
-        box-shadow: 0 0 1rem 2px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 2rem;
-        position: absolute;
-        left: 5%;
-        top: -250%;
-        width: 90%;
-        transition: var(--transition);
-    }
-
-    .nav-list.show {
-        top: calc(var(--nav-height) + 1rem);
-    }
-
-    .nav-link {
-        width: 100%;
-    }
-
-    .nav-button {
-        position: relative;
-        display: block;
-        line-height: 0;
-        z-index: 100;
-    }
-
-    .bxs-grid-alt {
-        font-size: 24px;
-        padding: 2px;
-    }
-
     .games-wrapper {
         gap: 2rem;
     }

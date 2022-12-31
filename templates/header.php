@@ -25,7 +25,7 @@
     <nav class="nav">
         <a class="nav-title" href="/">imsgames</a>
 
-        <ul class="nav-list">
+        <ul class="nav-list" id="nav-list">
             <a class="nav-link" href="/game">Games</a>
             <a class="nav-link" href="/game/request">Requests</a>
 
@@ -36,9 +36,7 @@
             <?php endif; ?>
         </ul>
 
-        <button class="nav-button" type="button" onclick="toggleNavMenu(event)">
-            <i class='bx bxs-grid-alt'></i>
-        </button>
+        <i class="bx bxs-grid-alt nav-button" id="nav-button" onclick="toggleNavMenu();"></i>
     </nav>
     <?php
     if (isset($_SESSION['notification'])) {

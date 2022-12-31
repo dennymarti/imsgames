@@ -1,9 +1,4 @@
-function toggleNavMenu(event) {
-    const navMenu = event.currentTarget.parentElement.querySelector('.nav-list');
-
-    if (navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-    } else {
-        navMenu.classList.add('show');
-    }
+function toggleNavMenu() {
+    document.getElementById('nav-list').classList.toggle('show');
+    document.getElementById('nav-button').classList.toggle('colored');
 }
