@@ -10,28 +10,17 @@
     position: relative;
     width: 100%;
 }
-
-.nav-authentication {
-    background-color: var(--blue);
-    border-radius: 2rem;
-    border: none;
-    color: white;
-    padding: 0.5rem 1.5rem;
-}
-
 .nav-title {
     color: var(--dark);
     font-size: 24px;
     font-weight: 700;
 }
-
 .nav-list {
     display: flex;
     align-items: center;
     gap: 2rem;
     position: relative;
 }
-
 .nav-link {
     color: var(--dark);
     display: block;
@@ -39,11 +28,9 @@
     font-weight: 500;
     transition: 200ms;
 }
-
 .nav-link:hover {
     color: var(--blue);
 }
-
 .nav-button {
     color: black;
     cursor: pointer;
@@ -51,11 +38,7 @@
     padding: 0.25rem;
     position: relative !important;
 }
-
 @media only screen and (max-width: 520px) {
-    .nav-authentication {
-        padding: 0.5rem 1.25rem;
-    }
     .nav-list {
         background-color: var(--light);
         border-radius: 8px;

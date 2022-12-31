@@ -30,28 +30,32 @@
             <a class="nav-link" href="/game/request">Requests</a>
 
             <?php if (!$this->isLoggedIn): ?>
-                <a href="/authentication" class="nav-authentication">Einloggen</a>
+                <a href="/authentication" class="button">Einloggen</a>
             <?php else: ?>
-                <a href="/authentication/logout" class="nav-authentication">Logout</a>
+                <a href="/authentication/logout" class="button">Logout</a>
             <?php endif; ?>
         </ul>
 
         <i class="bx bxs-grid-alt nav-button" id="nav-button" onclick="toggleNavMenu();"></i>
     </nav>
     <?php
-    if (isset($_SESSION['notification'])) {
-        $message = $_SESSION['notification'];
-        echo "
+    if (isset($_SESSION['notification']) || isset($_SESSION['system'])) { ?>
         <div class='toast' id='toast'>
             <div class='toast-content'>
-                <h4 class='toast-title'>Authentifizierung</h4>
-                <p class='toast-message'>$message</p>
+                <?php if (isset($_SESSION['notification'])) {
+                    echo "<h4 class='toast-title'>Authentifizierung</h4>";
+                    $message = $_SESSION['notification'];
+                    unset($_SESSION['notification']);
+                } else {
+                    echo "<h4 class='toast-title'>Authentifizierung</h4>";
+                    $message = $_SESSION['system'];
+                    unset($_SESSION['system']);
+                } ?>
+                <p class='toast-message'><?php echo $message ?></p>
             </div>
             <i class='bx bx-x close-icon' onclick='closeToast();'></i>
-        </div>";
-        unset($_SESSION['notification']);
-    }
-    ?>
+        </div>
+    <?php } ?>
 </header>
 
 <main class="container">

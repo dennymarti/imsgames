@@ -1,11 +1,7 @@
 <div class="game-container" id="game-container">
-    <a class="nav-authentication game-button" href="#game-container">
-        <button id="prevent">Fokusieren</button>
-    </a>
+    <a class="button" id="prevent" href="#game-container">Fokusieren</a>
     <object class="game" data="/games/<?= $game->dir; ?>/index.html"></object>
-    <a class="nav-authentication game-button" href="#comments">
-        <button id="allow">Verlassen</button>
-    </a>
+    <a class="button" id="allow" href="#comments">Verlassen</a>
 </div>
 
 <div class="comment-wrapper">
