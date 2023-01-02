@@ -36,7 +36,7 @@
             <?php endif; ?>
         </ul>
 
-        <i class="bx bxs-grid-alt nav-button" id="nav-button" onclick="toggleNavMenu();"></i>
+        <i class="bx bxs-grid-alt bxn nav-button" id="nav-button" onclick="toggleNavMenu();"></i>
     </nav>
     <?php
     if (isset($_SESSION['notification']) || isset($_SESSION['system'])) { ?>
@@ -47,7 +47,7 @@
                     $message = $_SESSION['notification'];
                     unset($_SESSION['notification']);
                 } else {
-                    echo "<h4 class='toast-title'>Authentifizierung</h4>";
+                    echo "<h4 class='toast-title'>imsgames</h4>";
                     $message = $_SESSION['system'];
                     unset($_SESSION['system']);
                 } ?>

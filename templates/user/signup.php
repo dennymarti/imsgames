@@ -17,9 +17,9 @@
 
         <div class="form-field">
             <input class="form-input" name="username" placeholder="Benutzername" type="text" onkeyup="validateUsername(event)" onfocusout="validateUsername(event)" required>
-            <i class="bx bx-user bxf"></i>
-            <i class="bx bx-x-circle bx-vw"></i>
-            <i class="bx bx-check-circle bx-vs"></i>
+            <i class="bx bx-user bxf bxd"></i>
+            <i class="bx bx-x-circle bxf bxw"></i>
+            <i class="bx bx-check-circle bxf bxc"></i>
 
             <div class="tooltip-box">
                 <p class="tooltip-message"></p>
@@ -27,10 +27,10 @@
         </div>
         <div class="form-field">
             <input class="form-input" id="password" name="password" placeholder="Passwort" type="password" onkeyup="validatePassword(event)" onfocusout="validatePassword(event)" required>
-            <i class="bx bx-lock-alt bxf"></i>
-            <i class="bx bx-x-circle bx-vw"></i>
-            <i class="bx bx-check-circle bx-vs"></i>
-            <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
+            <i class="bx bx-lock-alt bxf bxd"></i>
+            <i class="bx bx-x-circle bxf bxw"></i>
+            <i class="bx bx-check-circle bxf bxc"></i>
+            <i class="bx bx-hide bxf bxp" onclick="visualizePassword(event)"></i>
 
             <div class="tooltip-box">
                 <p class="tooltip-message"></p>
@@ -38,10 +38,10 @@
         </div>
         <div class="form-field">
             <input class="form-input" placeholder="Passwort bestätigen" type="password" onkeyup="validateConfirmedPassword(event)" onfocusout="validateConfirmedPassword(event)" required>
-            <i class="bx bx-lock-alt bxf"></i>
-            <i class="bx bx-x-circle bx-vw"></i>
-            <i class="bx bx-check-circle bx-vs"></i>
-            <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
+            <i class="bx bx-lock-alt bxf bxd"></i>
+            <i class="bx bx-x-circle bxf bxw"></i>
+            <i class="bx bx-check-circle bxf bxc"></i>
+            <i class="bx bx-hide bxf bxp" onclick="visualizePassword(event)"></i>
 
             <div class="tooltip-box">
                 <p class="tooltip-message"></p>

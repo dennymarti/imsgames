@@ -8,20 +8,20 @@
         if (isset($error)) {
             echo "
 <div class='error-box'>
-    <i class='bx bx-error-circle'></i>
+    <i class='bx bx-error-circle bxi'></i>
     <p class='error-message'>$error</p>
 </div>";
         }
         ?>
         <div class="form-field">
             <input class="form-input" name="username" type="text" placeholder="Benutzername" required>
-            <i class="bx bx-user bxf"></i>
+            <i class="bx bx-user bxf bxd"></i>
         </div>
 
         <div class="form-field">
             <input class="form-input" name="password" type="password" placeholder="Passwort" required>
-            <i class="bx bx-lock-alt bxf"></i>
-            <i class="bx bx-hide bxp" onclick="visualizePassword(event)"></i>
+            <i class="bx bx-lock-alt bxf bxd"></i>
+            <i class="bx bx-hide bxf bxp" onclick="visualizePassword(event)"></i>
         </div>
 
         <div class="form-text">

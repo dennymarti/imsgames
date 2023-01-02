@@ -31,7 +31,7 @@
             <?php foreach ($comments as $comment): ?>
                 <div class="comment-card">
                     <div class="comment-user">
-                        <i class="bx bxs-user-circle bx-cu"></i>
+                        <i class="bx bxs-user-circle bxu"></i>
                     </div>
                     <div class="comment-content">
                         <?php foreach($users as $user):?>

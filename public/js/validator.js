@@ -93,9 +93,6 @@ function validateDescription(event) {
     if (value.length < 1) {
         message = 'Beschreibung darf nicht leer sein.';
         setInvalid(control, message);
-    } else if (value.length < 10) {
-        message = 'Beschreibung muss min. 20 Buchstaben beinhalten';
-        setInvalid(control, message);
     } else {
         setValid(control);
     }
